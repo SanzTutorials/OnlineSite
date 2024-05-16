@@ -3,13 +3,13 @@
 
 **HTML Structure Breakdown**
 
-######Document Type Declaration (DTD):
-######The <!DOCTYPE html> declaration specifies that this document is an HTML5 document.
-######It’s the first line of the HTML file and informs the browser about the document type.
+#Document Type Declaration (DTD):
+The <!DOCTYPE html> declaration specifies that this document is an HTML5 document.
+It’s the first line of the HTML file and informs the browser about the document type.
 
-######HTML Structure:
-######The <html> element encloses the entire HTML content.
-######Inside the <html> element, we have two main sections: <head> and <body>.
+HTML Structure:
+The <html> element encloses the entire HTML content.
+Inside the <html> element, we have two main sections: <head> and <body>.
 
 Head Section:
 The <head> section contains metadata about the document.
