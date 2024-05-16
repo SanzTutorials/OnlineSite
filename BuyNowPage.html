@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Gifts</title>
+  <style>
+    body
+    {
+      margin: 0px;
+    }
+    h5
+    {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      margin-top: 0px;
+    }
+    header 
+    {
+      background-color: white 
+    }
+    h1
+    {
+      text-align: center;
+    }
+    nav 
+    {
+      background-color:white;
+      padding-bottom: 2px;
+    }
+    nav ul
+     {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      
+    }
+    nav ul li
+    {
+      display: inline;     
+    }
+    nav ul li a
+    {
+      color: rgb(48, 46, 46);
+      padding: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu_pic
+    {
+      margin-right: 10px;
+      float: right;     
+    }
+    .menu_pic a
+    {
+      padding-right: 15px; 
+    }   
+    #offer
+    {
+      padding-top: 20%;
+      padding-bottom: 20%;
+      padding-right: 10%;
+      background-image: url("HomeBg.jpg");
+      background-size: cover;
+      width: auto;
+      height: 100%;      
+    }
+    #offer h1
+    {
+      text-align: right;      
+    }
+    #offer h4
+    {     
+      text-align: right;    
+    }
+    .free_shipping
+    {
+      color: black;
+    }
+    .gloves
+    {     
+      color: white;
+      text-align: center;
+      font-size: bolder;
+      width: 180px;
+      height: 200px;
+      background-image: url("gloves.jpg");
+      opacity: 0.7;
+      background-size: cover;      
+    }
+    #gloves,#basket,#jacket
+    {
+      margin-top: 69%;     
+      background-color: black;
+    }
+    .basket
+    {
+      background-image: url("basket.jpg");
+      opacity: 0.7;
+      background-size: cover;
+      width: 180px;
+      height: 200px;
+      margin-left: 10px;
+      color: white;
+      text-align: center;
+      font-size: bolder;     
+    }
+    .jacket
+    {
+      background-image: url("jacket.jpg");
+      opacity: 0.7;
+      background-size: cover;
+      width: 180px;
+      height: 200px;
+      margin-left: 10px;
+      color: white;
+      text-align: center;
+      font-size: bolder;
+    }
+    .products
+    {
+      display: flex;
+      padding-left:30%;
+      margin-top: 10px;
+    }
+    body
+    {
+      background-image: url("BuyBg.jpg");      
+    }
+    main
+    {
+    width: 80%;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 10% auto;
+    padding: 70px;
+    background-color: #e8e2dc;
+    border: 2px solid #ccc; /* Add a border and adjust the style as needed */
+    border-radius: 8px;    
+    }
+    #name
+    {
+      margin-left: 26%;
+    }
+    #phone
+    {
+      margin-left: 14.6%;
+    }
+    #glovesQuantity
+    {
+      margin-left: 16%;
+    }
+    #basketQuantity
+    {
+      margin-left: 16.1%;
+    }
+    #jacketQuantity
+    {
+      margin-left: 16.6%;
+    }
+   
+    #PlaceOrder
+    {
+    background-color: black;
+    color: white;
+    width: 20%;
+    }
+    .receipt
+    {  
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    }
+    .receipt h3 
+    {
+    text-align: center;
+    }
+    .receipt b 
+    {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    }
+   .receipt p
+   {
+    margin: 5px 0;
+    }
+   .receipt hr 
+    {
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    }
+    .receipt center 
+    {
+    margin-bottom: 20px;
+    }
+
+  </style>
+
+<script>
+ 
+
+ function validation() {
+    var n1, n2, n3, n4, n5;
+    n1 = document.getElementById("name").value;
+    n2 = document.getElementById("phone").value;
+    n3 = document.getElementById("glovesQuantity").value;
+    n4 = document.getElementById("basketQuantity").value;
+    n5 = document.getElementById("jacketQuantity").value;
+
+    var nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+    var phoneRegex = /^\d{10}$/;
+
+    if(n1=="" || n2=="")
+    {
+      document.getElementById("error").innerHTML = "Name is required";
+        document.getElementById("error").style.color = "red";
+        document.getElementById("error1").innerHTML = "Number is required";
+        document.getElementById("error1").style.color = "red";
+        return false;
+    }
+
+else{
+    if (n1 == "") {
+        document.getElementById("error").innerHTML = "Name is required";
+        document.getElementById("error").style.color = "red";
+        return false;
+    }
+
+    if (!nameRegex.test(n1)) {
+        document.getElementById("error").innerHTML = "Name should be alphabet";
+        document.getElementById("error").style.color = "red";
+        return false;
+        }
+
+    if (n2 == "" ) {
+        document.getElementById("error1").innerHTML = "Number is required";
+        document.getElementById("error1").style.color = "red";
+        return false;
+    }
+    if (!phoneRegex.test(n2)) {
+        document.getElementById("error1").innerHTML = "Invalid number";
+        document.getElementById("error1").style.color = "red";
+        return false;
+        }
+
+
+    var regex = /^[1-9]\d*$/; // Regular expression to match positive integers 
+    if (n3 !== "" && !n3.match(regex)) {
+        document.getElementById("error2").innerHTML = "Enter a valid quantity";
+        document.getElementById("error2").style.color = "red";
+        return false;
+      }
+
+      if (n4 !== "" && !n4.match(regex)) {
+        document.getElementById("error3").innerHTML = "Enter a valid quantity";
+        document.getElementById("error3").style.color = "red";
+        return false;
+      }
+
+      if (n5 !== "" && !n5.match(regex)) {
+        document.getElementById("error4").innerHTML = "Enter a valid quantity";
+        document.getElementById("error4").style.color = "red";
+        return false;
+      }
+}
+
+    // Calculate Sub Total, Tax, and Total Cost
+    var glovesPrice = 28.50; // Assuming each glove costs $10
+    var basketPrice = 28.50; // Assuming each basket costs $15
+    var jacketPrice = 19.99; // Assuming each jacket costs $25
+
+    var glovesQuantity = parseInt(n3);
+    var basketQuantity = parseInt(n4);
+    var jacketQuantity = parseInt(n5);
+
+    glovesQuantity = isNaN(glovesQuantity) ? 0 : glovesQuantity;
+    basketQuantity = isNaN(basketQuantity) ? 0 : basketQuantity;
+    jacketQuantity = isNaN(jacketQuantity) ? 0 : jacketQuantity;
+
+    var glovesUnitPrice = glovesPrice.toFixed(2);
+    var basketUnitPrice = basketPrice.toFixed(2);
+    var jacketUnitPrice = jacketPrice.toFixed(2);
+
+    var glovesTotal = (glovesPrice * glovesQuantity).toFixed(2);
+    var basketTotal = (basketPrice * basketQuantity).toFixed(2);
+    var jacketTotal = (jacketPrice * jacketQuantity).toFixed(2);
+
+    var subTotal = glovesPrice * glovesQuantity + basketPrice * basketQuantity + jacketPrice * jacketQuantity;
+    var tax = 0.13 * subTotal;
+    var totalCost = subTotal + tax;
+
+    // Display the receipt with the order details
+    var receipt = document.getElementById("receipt");
+    receipt.innerHTML = "<center><h3>Order Confirmation</h3></center>";
+    receipt.innerHTML += "<b>Customer Details:</b><br>";
+    receipt.innerHTML += "Name: " + n1 + "<br>";
+    receipt.innerHTML += "Phone: " + n2 + "<br>";
+    receipt.innerHTML += "<b>Product Details:</b>";
+
+    if (glovesQuantity > 0) {
+      receipt.innerHTML += "<b>Gloves:</b> Quantity: " + glovesQuantity + ", Unit Price: $" + glovesUnitPrice + ", Total Price: $" + glovesTotal + "<br>";
+    }
+    if (basketQuantity > 0) {
+      receipt.innerHTML += "<b>Basket:</b> Quantity: " + basketQuantity + ", Unit Price: $" + basketUnitPrice + ", Total Price: $" + basketTotal + "<br>";
+    }
+    if (jacketQuantity > 0) {
+      receipt.innerHTML += "<b>Jacket:</b> Quantity: " + jacketQuantity + ", Unit Price: $" + jacketUnitPrice + ", Total Price: $" + jacketTotal + "<br>";
+    }
+    receipt.innerHTML += "<b>Payment Details:</b><br>";
+    receipt.innerHTML += "Sub Total: $" + subTotal.toFixed(2) + "<br>";
+    receipt.innerHTML += "Tax (13%): $" + tax.toFixed(2) + "<br>";
+    receipt.innerHTML += "Total Cost: $" + totalCost.toFixed(2) + "<br>";
+
+    // Show the receipt section
+    receipt.style.display = "block";
+
+    // Hide the form after placing the order
+    document.getElementById("orderForm").style.display = "none";
+
+    // Prevent form submission (since we're handling it here)
+    return false;
+  }
+
+
+</script>
+</head>
+<body>
+  <header>     
+    <center><h5 >FREE SHIPPING ON ORDERS OVER $100</h5></center>
+  <h1>Welcome to <font style="color: red;">Get Gifts</font></h1>
+  <nav>
+    <ul>
+      <li><a href="HomePage.html">Home</a></li>
+      <li><a href="BuyNowPage.html">Buy Now</a></li>
+      <div class="menu_pic">
+        <a href="#"><img src=search.png width="15px" height="15px"></a>
+        <a href="#"><img src=account.png width="15px" height="15px"></a>
+        <a href="#"><img src=cart.png width="15px" height="15px"></a>      
+      </div>     
+    </ul>   
+  </nav>
+</header>
+
+    <main>
+        
+           <center> <h2>Buy Now</h2></center>
+            <br><br>
+            <form name="MyForm" id="orderForm" action="" method="post" enctype="multipart/form-data">
+              
+                <label>Name*</label>
+                <input type="text" id="name">
+                <center><div id="error"></div></center>
+              <br><br>
+              
+                <label>Customer Phone*</label>
+                <input type="text" id="phone" >
+                <center><div id="error1"></div></center>
+              <br><br>
+                <label>Gloves Quantity</label>
+                <input type="text" id="glovesQuantity">
+                <center><div id="error2"></div></center>
+             <br><br>
+                <label>Basket Quantity</label>
+                <input type="text" id="basketQuantity">
+                <center><div id="error3"></div></center>
+              <br><br>
+                
+                <label>Jacket Quantity</label>
+                <input type="text" id="jacketQuantity">
+                <center><div id="error4"></div></center>  
+              <br><br>
+                
+            <center><input type="submit" value="Place Order" id="PlaceOrder" onclick="return validation()"></center>
+              
+            </form>
+            <br>
+            <div id="receipt" class="receipt" style="display: none;"></div>
+        
+        
+    </main>
+  </body>
+
+  </html>
